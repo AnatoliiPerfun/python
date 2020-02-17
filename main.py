@@ -1,3 +1,68 @@
+age = int(input("What is you age?"))
+year = 2020 - age
+if age < 0:
+    print("Wrong age")
+if age > 100:
+    print("wow! no way")
+if 0 <= age <= 100:
+    print("your were born ",age," years ago!")
+    print("In ", year)
+
+
+
+name1 = input("What is your name?")
+name2 = input("What is you family name?")
+
+space = name1.find(" ")
+name1_first = name1[0:space]
+name1_last = name1[space+1:len(name1)]
+space = name2.find(" ")
+name2_first = name2[0:space]
+name2_last = name2[space+1:len(name2)]
+
+name1_first_1sthalf = name1_first[0:int(len(name1_first)/2)]
+name1_first_2ndhalf = name1_first[int(len(name1_first)/2):len(name1_first)]
+name1_last_1sthalf = name1_last[0:int(len(name1_last)/2)]
+name1_last_2ndhalf = name1_last[int(len(name1_last)/2):len(name1_last)]
+
+name2_first_1sthalf = name2_first[0:int(len(name2_first)/2)]
+name2_first_2ndhalf = name2_first[int(len(name2_first)/2):len(name2_first)]
+name2_last_1sthalf = name2_last[0:int(len(name2_last)/2)]
+name2_last_2ndhalf = name2_last[int(len(name2_last)/2):len(name2_last)]
+
+new_name1_first = name1_first_1sthalf + name2_first_2ndhalf
+new_name1_last = name1_last_1sthalf + name2_last_2ndhalf
+new_name2_first = name2_first_1sthalf + name1_first_2ndhalf
+new_name2_last = name2_last_1sthalf + name1_last_2ndhalf
+
+print(new_name1_first, new_name1_last)
+print(new_name2_first, new_name2_last)
+
+
+
+day = input("what day of the week? ")
+num = int(input("how may times? "))
+print("It`s", day*num)
+
+
+phrase = "Eak, two snake eyes"
+num = "1"
+
+num_repeat = num * 4
+print(num_repeat)
+
+
+minutes_to_convert = 123
+hours = int(minutes_to_convert / 60)
+minutes = minutes_to_convert % 60
+
+print("Hours")
+print(hours)
+print("Minutes")
+print(minutes)
+
+
+
 
 import datetime
 x = datetime.datetime.now()
