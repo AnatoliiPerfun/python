@@ -1,3 +1,54 @@
+
+u1 = 9
+u2 = 6
+print("I`m thinking of 2 numbers: ")
+
+op = input("Enter + or - : ")
+if op == "+":
+    print("a + b = ", u1 + u2)
+elif op == "-":
+    print("a - b = ", u1 - u2)
+else:
+    print("that`s not a choice.")
+
+op = input("enter + or - : ")
+if op == "+":
+    print("a + b = ", u1 + u2)
+elif op == "-":
+    print("a - b = ", u1 - u2)
+else:
+    print("That`s not a choice.")
+
+a = int(input("Guess a? "))
+b = int(input("Guess b? "))
+
+if a == u1 and b == u2:
+    print("You guess!")
+else:
+    print("Nope. Play again!")
+
+
+
+n1 = int(input("enter a number: "))
+
+if n1 > 0:
+    print("positive")
+elif n1 < 0:
+    print("negative")
+else:
+    print("zero")
+
+
+    
+love = True
+hate = False
+
+if love and not hate:
+    print("happy!")
+elif not love and hate:
+    print("angry!")
+
+
 age = int(input("What is you age?"))
 year = 2020 - age
 if age < 0:
@@ -5,10 +56,10 @@ if age < 0:
 if age > 100:
     print("wow! no way")
 if 0 <= age <= 100:
-    print("your were born ",age," years ago!")
+    print("your were born ", age, " years ago!")
     print("In ", year)
 
-
+    
 
 name1 = input("What is your name?")
 name2 = input("What is you family name?")
