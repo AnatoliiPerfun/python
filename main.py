@@ -1,3 +1,151 @@
+words = """ art
+bolt
+drop
+mail
+hat
+dog
+cat
+math
+pan
+but
+on
+at
+not
+or
+are
+next
+left
+right
+well
+good
+fine
+inside
+outside
+back
+white
+yellow
+low
+fast
+break
+after
+mama
+papa
+sister
+brother
+need
+down
+sun
+water
+sand
+seed
+plain
+tank
+car
+  """
+ 
+all_valid_words = ()
+start = 0
+end = 0
+
+for char in words:
+    if char == '\n':
+        all_valid_words = all_valid_words + (words[start:end], )
+        start = end + 1
+        end = end + 1
+    
+    else:
+        end = end + 1
+tiles = input("type any letters: ")        
+found_words = ()
+
+for word in all_valid_words:
+    all_letters_in_word = True
+    tiles_left = tiles 
+     
+    for letter in word:
+        
+        if letter not in tiles_left:
+            all_letters_in_word = False
+            break
+        
+        else:
+            index = tiles_left.find(letter)
+            tiles_left = tiles_left[0:index] + tiles_left[index+1:len(tiles_left)]
+        
+
+    if all_letters_in_word:
+        found_words = found_words + (word, )
+        
+for w in found_words:
+    print(w)
+     
+print(found_words)        
+
+    
+
+
+while True:
+    pwd = input("Create a password: ")
+    longer_than_6 = (len(pwd) >= 6)
+    has_capital = False
+    has_digits = False
+    for ch in pwd:
+        if ch in "0123456789":
+            has_digits = True
+        if ch in "QWERTYUIOPASDFGHJKLZXCVBNM":
+            has_capital = True
+    if not longer_than_6:
+        print("Must be 6 or more characters")
+    if not has_digits:
+        print("Must have at least one digit")
+    if not has_capital:
+        print("Must have at least one capital letter")
+        
+        
+    if not longer_than_6 or not has_digits or not has_capital:
+        continue
+    break
+print("Password have been created!")
+
+
+
+
+
+for i in range(1, 11):
+    if i%3 == 0:
+        continue
+    print(i)
+
+
+
+for i in range(5):
+    print("in for loop", i)
+    
+    i = 0
+while i < 5:
+    print("in while loop", i)    
+    i += 1
+
+
+text = input("Wash? YES or NO:")
+
+while text == "YES":
+    print("Rinse")
+    text = input("wash again? YES or NO")
+    
+
+
+n = int(input("What is hight of your triangle?:"))
+
+for i in range(1, n+1):
+    print("*" * i)
+    
+for i in range(n-1, 0, -1):
+    print("*" * i)
+  
+
+
+
 print("You`re on Island in a dark cave!")
 print("Try to survive until rescue arrives!")
 print("Rules: ")
