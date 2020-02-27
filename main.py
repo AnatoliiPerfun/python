@@ -1,3 +1,159 @@
+
+def read_file(file):
+    
+    
+    first_every_2 = ()
+    second_every_2 = ()
+    line_count = 0
+    for line in file:
+        stripped_line = line.replace("\n","")
+        if line_count % 2 == 0:
+             first_every_2 += (stripped_line, )
+        elif line_count % 2 == 1:
+            second_every_2 += (stripped_line, )
+        line_count += 1
+        
+    return (first_every_2, second_every_2)
+    
+def sanitize(some_tuple):
+    
+    clean_string = ()
+    for st in some_tuple:
+        st = st.replace(" ", "")
+        st = st.replace("-", "")
+        st = st.replace(")", "")
+        st = st.replace("(", "")
+        clean_string += (st, )
+    return clean_string     
+
+def analyze_friends(names, phones, all_areacodes, all_places):
+    
+    
+    def get_unique_area_codes():
+        
+        area_codes = ()
+        for ph in phones:
+            if ph[0:3] not in area_codes:
+               area_codes += (ph[0:3], ) 
+        return area_codes
+
+    def get_states(some_areacodes):
+        
+        states = ()
+        for ac in some_areacodes:
+            if ac not in all_areacodes:
+                states += ("bad areacode", )
+            else:
+                index = all_areacodes.index(ac)
+                states += (all_places[index], )
+        return states 
+
+    num_friends = len(names)
+    unique_area_codes = get_unique_area_codes()
+    unique_states = get_states(unique_area_codes)
+    
+    print("You have", num_friends, "Friends!")
+    print("They live in: ")
+    for s in unique_states:
+        print(s)
+        
+friends_file = open("phone.txt")
+map_file = open("adress.txt")
+(names, phones) = read_file(friends_file)
+(areacodes,places) = read_file(map_file)
+friends_file.close()
+map_file.close()
+clean_phones = sanitize(phones)
+analyze_friends(names, clean_phones, areacodes, places)
+# print(names)
+# print(clean_phones)
+
+
+
+
+def normalize_to_100(score, out_of):
+    
+    return score*100/out_of
+def pass_or_fail(score, out_of):
+    
+    if normalize_to_100(score, out_of) > 50:
+        return "pass"
+    else:
+        return "fail"
+        
+def grade(student_scores, out_of, f):
+
+    for i in student_scores:
+        print(i[0], ":", f(i[1], out_of))
+        
+scores = (("ana", 7.5), ("pavel", 8), ("dima", 4.8))       
+grade(scores, 10, pass_or_fail)
+
+
+
+
+
+def sandwich(kind_of_sandwich):
+    print("-------")
+    print(kind_of_sandwich())
+    print("-------")
+    
+def blt():
+    my_blt = "bacon\nlettuce\ntomato"
+    return my_blt
+
+def breakfast():
+    my_ec = "egg\ncheese\negg"
+    return my_ec
+    
+sandwich(blt)
+sandwich(breakfast)
+
+
+
+def sing():
+    def stop(line):
+        print("stop",line)
+    stop("mazafaka") 
+    stop("pipipi")
+    stop("wowowow")
+
+sing()
+
+
+
+
+def seat_at_tables(group):
+    big_table = 3
+    big_fit = 6
+    small_table = 3
+    small_fit = 4
+    
+    possible = ()
+    
+    for i in range(big_table + 1):
+        for j in range(small_table + 1):
+            possible += (i*big_fit + j*small_fit,  )
+    return group in possible
+
+print(seat_at_tables(11))        
+    
+
+
+
+def get_full_length(words):
+    
+    length = 0
+    for word in words:
+        length += len(word)
+        return length  
+w = ("hello", "it is", "me") 
+print(get_full_length(w))
+
+
+
+
+
 words = """ art
 bolt
 drop
