@@ -1,4 +1,66 @@
 
+grades  = {}
+grades["masha"] = [100, 90]
+grades["misha"] = [85, 95]
+grades["tolik"] = [89, 100] 
+
+for student in grades.keys():
+    score = grades[student]
+    grades[student].append(sum(score)/2)
+    
+print(grades)
+# for av in grades.values():
+#     print(sum(av)/2)
+
+# for student in grades.keys():
+    # print(student)
+
+# print(grades) 
+
+
+
+song = "happy birthday to you happy birthday to you happy birthday dear friend happy birthday to you"
+counts ={}
+
+words = song.split(" ")
+
+for word in words:
+    word = word.lower()
+    if word not in counts:
+        counts[word] = 1
+    else:
+        counts[word] += 1
+print(counts)        
+
+
+
+songs = {"bring":3, "me":4, "to life":5}
+# print(songs.keys())
+
+# for one_song in songs.keys():
+#     print(one_song)
+
+
+# all_songs = list(songs.keys())
+# print(all_songs)
+
+for rate in songs.values():
+    print(rate)
+
+
+
+household = {"person":4, "cat":2, "dog":1, "fish":2}
+# removed = household.pop("fish")
+# print(removed)
+household["fish"] = household["fish"] - 1
+print(household)
+
+gro = {}
+gro = {"milk":1, "eggs":2, "bread":3}
+print(gro)
+
+
+
 def check_player_win(board, token):
      
     row1 = (board[0][0] == board[0][1] == board[0][2] == token)
