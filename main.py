@@ -1,4 +1,56 @@
 
+import string
+
+def read_text(filename):
+    
+    in_file = open(filename, 'r')
+    line = in_file.read()
+    return line
+
+def find_words(text):
+    text = text.replace("\n", " ")
+    for ch in string.punctuation:
+        text = text.replace(ch, "")
+    words = text.split(" ")
+    return words    
+
+
+def freq(words):
+    freq_dict = {}
+    for w in words:
+        if w in freq_dict:
+           freq_dict[w] += 1
+        else:
+           freq_dict[w] = 1
+    return freq_dict       
+
+def calc_sim(d1, d2):
+    
+    d = 0
+    t = 0
+    for w in d1.keys():
+        if w in d2.keys():
+            d += abs(d1[w] - d2[w])
+        else:
+            d += d1[w]
+    for w in d2.keys():
+        if w not in d1.keys():
+            d += d2[w]
+    t = sum(d1.values()) + sum(d2.values())
+    sim = 1-d/t
+    return round(sim, 2)
+
+text1 = read_text("poem.txt")
+text2 = read_text("poem2.txt")
+words1 = find_words(text1)
+words2 = find_words(text2)
+freq_dict1 = freq(words1)
+freq_dict2 = freq(words2)
+
+print(calc_sim(freq_dict1, freq_dict2))
+
+
+
 grades  = {}
 grades["masha"] = [100, 90]
 grades["misha"] = [85, 95]
