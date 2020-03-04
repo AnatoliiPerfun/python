@@ -1,3 +1,67 @@
+#создаю свой класс и стэк
+
+class circle(object):
+    def __init__(self):
+        self.radius = 0
+    def change_radius(self, radius):
+        self.radius = radius
+    def get_radius(self):
+        return self.radius
+    
+     
+class stack(object):
+    def __init__(self):
+        self.stack = []
+    def get_stack_elem(self):
+        return self.stack.copy()
+    def add_one(self, item):
+        self.stack.append(item)
+    def remove_one(self):
+        self.stack.pop()
+    def add_many(self, item, n):
+        for i in range(n):
+            self.stack.append(item)
+    def remove_many(self, n):
+        for i in range(n):
+            self.stack.pop()
+    def size(self):
+        return len(self.stack)        
+    def prettyprint(self):
+        for t in self.stack[::-1]:
+            print('|_',t,'_|')
+
+
+circles = stack()
+one_circle = circle()
+one_circle.change_radius(2)
+circles.add_one(one_circle)
+one_circle.change_radius(1)
+circles.add_many(one_circle, 5)
+print(one_circle)
+# one_circle = circle()
+# one_circle.change_radius(1)      
+# circles.add_many(one_circle, 5)
+
+# for i in range(5):
+#     one_circle = circle()
+#     one_circle.change_radius(7)
+#     circles.add_one(one_circle)
+    
+print(circles.size())
+circles.prettyprint()
+    
+cars = stack()
+ferrari = ("ferrari " + " 645 hp")
+cars.add_one(ferrari)
+cars.add_one("audi")
+cars.add_many("bmw",5)
+print(cars.size())
+cars.prettyprint()
+cars.remove_one()
+print(cars.size())
+cars.prettyprint()
+
+
 
 import string
 
