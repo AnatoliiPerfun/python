@@ -1,4 +1,25 @@
 
+class fraction(object):
+    def __init__(self, top, bottom):
+        self.top = top
+        self.bottom = bottom
+    def __add__(self, plus):
+        new_top = self.top*plus.bottom + self.bottom*plus.top
+        new_bottom = self.bottom * plus.bottom
+        return fraction(new_top, new_bottom)
+    def __mul__(self, plus):
+        new_top = self.top * plus.top
+        new_bottom = self.bottom * plus.bottom
+        return fraction(new_top, new_bottom)
+    def __str__(self):
+        return str(self.top) + "/" + str(self.bottom)
+    
+first = fraction(5,10)
+second = fraction(7,14)
+print(first + second)
+print(first.__add__(second))
+print(first.__add__(second)).__str__() 
+
 
 
 class queue(object):
