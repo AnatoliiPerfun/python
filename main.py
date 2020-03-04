@@ -1,3 +1,28 @@
+
+
+
+class queue(object):
+    def __init__(self):
+        self.queue = []
+    def get_queue_el(self):
+        return self.queue.copy()
+    def add_one(self, item):
+        self.queue.append(item)
+    def remove_one(self):
+        self.queue.pop(0)
+    def size(self):
+        return len(self.queue)
+    def prettypr(self):
+        for t in self.queue[::-1]:
+            print('*@*@*__',t,'__*@*@*')
+            
+a = queue()
+a.add_one("kid")
+a.add_one("adult")
+# a.remove_one()
+a.prettypr()
+
+
 #создаю свой класс и стэк
 
 class circle(object):
