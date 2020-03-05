@@ -1,4 +1,91 @@
 
+# simple cardgame using random
+
+import random
+
+# r = random.random()
+# print(r)
+# i = random.randint(5,125)
+# print(i)
+# n = [1,"cat","dog","car",9,25]
+# g = random.choice(n)
+# print(g)
+
+class player(object):
+    def __init__(self, name):
+        self.name = name
+        self.hand = []
+    def get_name(self):
+        return self.name
+    def add_card(self,card):
+        if card != None:
+            self.hand.append(card)
+    def remove_card(self,card):
+        self.hand.remove(card)
+    def hand_size(self):
+        return len(self.hand)
+
+class carddeck(object):
+    def __init__(self):
+                
+        hearts = "2h,3h,4h,5h,6h,7h,8h,9h"
+        clubs = "2c,3c,4c,5c,6c,7c,8c,9c"
+        spades = "2s,3s,4s,5s,6s,7s,8s,9s"
+        diamonds = "2d,3d,4d,5d,6d,7d,8d,9d"     
+        self.deck = hearts.split(',')+diamonds.split(',')+clubs.split(',')+spades.split(',')
+    def get_card(self):
+        if len(self.deck) < 1:
+            return None
+        card = random.choice(self.deck)
+        self.deck.remove(card)
+        return card
+    def compare_card(self, card1, card2):
+        if card1[0] > card2[0]:
+            return card1
+        elif card1[0] < card2[0]:
+            return card2
+        elif card1[1] > card2[1]:
+            return card1
+        else:
+            return card2
+                
+name1 = input("Enter your name Player 1: ")
+player1 = player(name1)
+name2 = input("Enter your name Player 2: ")
+player2 = player(name2)
+deck = carddeck()
+
+while True:
+    player1_card = deck.get_card()
+    player2_card = deck.get_card()
+    player1.add_card(player1_card)
+    player2.add_card(player2_card)
+    
+    if player1_card == None or player2_card == None:
+        print("Game over!")
+        print(name1, "has", player1.hand_size())
+        print(name2, "has", player2.hand_size())
+        print("Who, won???")
+        if player1.hand_size() > player2.hand_size():
+            print(name1, " win!")
+        elif player1.hand_size() < player2.hand_size():
+            print(name2, " win!")
+        else:
+            print("wowwowwow its a tie!")
+        break
+    else:
+        print(name1," : ",player1_card)
+        print(name2," : ",player2_card)
+        if deck.compare_card(player1_card, player2_card) == player1_card:
+            player2.add_card(player1_card)
+            player1.remove_card(player1_card)
+            
+        else:
+            player1.add_card(player2_card)
+            player2.remove_card(player2_card)
+
+
+
 class fraction(object):
     def __init__(self, top, bottom):
         self.top = top
