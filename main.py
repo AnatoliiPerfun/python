@@ -1,4 +1,23 @@
 
+import math
+
+distance = float(input("How far? (m) "))
+speed = float(input("how fast? (m/s)"))
+angle_d = float(input("what angle? (degree) "))
+
+tolerance = 2
+angle_r = math.radians(angle_d)
+reach = 2*speed**2*math.sin(angle_r)*math.cos(angle_r)/9.8
+
+if reach > distance - tolerance and reach < distance - tolerance:
+    print("Nice throw!")
+elif reach < distance - tolerance:
+    print("Too low!")
+else:
+    print("Too far!")
+
+
+
 # simple cardgame using random
 
 import random
@@ -10,6 +29,7 @@ import random
 # n = [1,"cat","dog","car",9,25]
 # g = random.choice(n)
 # print(g)
+# print(random.sample(n, 3))
 
 class player(object):
     def __init__(self, name):
