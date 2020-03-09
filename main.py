@@ -1,4 +1,18 @@
 
+
+import time
+
+print(" Loading... ")
+for i in range(10):
+    print("[", i*"*", (10-i)*"","]", i*10)
+    time.sleep(0.5)
+
+import datetime
+t = datetime.datetime.now()
+print(t)
+
+
+
 import math
 
 distance = float(input("How far? (m) "))
