@@ -1,4 +1,51 @@
 
+import tkinter
+import time
+
+
+def ch_col_1():
+    window.configure(background="green")
+def ch_col_2():
+    window.configure(background="red")    
+def ch_col_3():
+    window.configure(background="grey")
+
+def countdown():
+    countlabel.configure(background="white")
+    howlong = int(textbox.get())
+    for i in range(howlong, 0, -1):
+        countlabel.configure(text = i)
+        window.update()
+        time.sleep(1)
+    countlabel.configure(text="done") 
+    
+
+window = tkinter.Tk()
+window.geometry("600x600")
+window.title("my first window")
+window.configure(background = "black")
+
+but1 = tkinter.Button(window, text="green", bg="green", command=ch_col_1)
+but1.pack()
+but2 = tkinter.Button(window, text="red", bg="red", command=ch_col_2)
+but2.pack()
+but3 = tkinter.Button(window, text="grey", bg="grey", command=ch_col_3)
+but3.pack()
+
+lbl = tkinter.Label(window)
+lbl.pack()
+
+textbox = tkinter.Entry(window)
+textbox.pack()
+
+count = tkinter.Button(window, text="Countdown", command=countdown)
+count.pack()
+countlabel = tkinter.Label(window, height="10", width="10")
+countlabel.pack()
+
+window.mainloop()
+
+
 
 import time
 
