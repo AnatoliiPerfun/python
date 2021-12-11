@@ -44,18 +44,22 @@ def game_loop():
     new_head[0] += offset[snake_direction][0]
     new_head[1] += offset[snake_direction][1]
 
-    # add new head to snake
-    snake.append(new_head)
-    # remove tale of snake
-    snake.pop(0)
-    # draw snake first time
-    for segment in snake:
-        stamper.goto(segment[0], segment[1])
-        stamper.stamp()
-    # refresh screen
-    screen.update()
-    # rinse and reset
-    turtle.ontimer(game_loop, delay)
+    # check collision
+    if new_head in snake or new_head[0] < - width / 2 or new_head[0] > width / 2 or new_head[1] < - height / 2 or new_head[1] > height / 2:
+        turtle.bye()
+    else:
+        # add new head to snake
+        snake.append(new_head)
+        # remove tale of snake
+        snake.pop(0)
+        # draw snake first time
+        for segment in snake:
+            stamper.goto(segment[0], segment[1])
+            stamper.stamp()
+        # refresh screen
+        screen.update()
+        # rinse and reset
+        turtle.ontimer(game_loop, delay)
 
 
 # create window
