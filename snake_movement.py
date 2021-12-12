@@ -5,7 +5,7 @@ import random
 width = 1000
 height = 1000
 delay = 200
-food_size = 10
+food_size = 25
 
 offset = {
     "up": (0, 20),
@@ -56,12 +56,8 @@ def game_loop():
 
         # check food collision
         if not food_collision():
-            snake.pop(0) # stay same
+            snake.pop(0)  # stay same
 
-
-        # remove tale of snake
-        # snake.pop(0)
-        # draw snake first time
         for segment in snake:
             stamper.goto(segment[0], segment[1])
             stamper.stamp()
