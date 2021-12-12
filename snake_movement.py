@@ -61,15 +61,18 @@ def game_loop():
         for segment in snake:
             stamper.goto(segment[0], segment[1])
             stamper.stamp()
+
         # refresh screen
+        screen.title(f"snake game Score: {score}")
         screen.update()
         # rinse and reset
         turtle.ontimer(game_loop, delay)
 
 
 def food_collision():
-    global food_pos
+    global food_pos, score
     if get_distance(snake[-1], food_pos) < 20:
+        score += 1
         food_pos = get_random_food()
         food.goto(food_pos)
         return True
@@ -112,6 +115,7 @@ stamper.penup()
 # create snake
 snake = [[0, 0], [20, 0], [40, 0], [60, 0]]
 snake_direction = "up"
+score = 0
 
 # draw snake first time
 for segment in snake:
@@ -121,6 +125,7 @@ for segment in snake:
 # food
 food = turtle.Turtle()
 food.shape("circle")
+food.color("blue")
 food.shapesize(food_size / 20)
 food.penup()
 food_pos = get_random_food()
