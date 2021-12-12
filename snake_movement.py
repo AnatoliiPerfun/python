@@ -4,7 +4,7 @@ import random
 # define consts
 width = 1000
 height = 1000
-delay = 150
+delay = 100
 food_size = 25
 
 offset = {
@@ -116,7 +116,7 @@ bind_direction_keys()
 
 # create a turtle
 stamper = turtle.Turtle()
-stamper.shape("square")
+stamper.shape("circle")
 stamper.penup()
 
 # # draw snake first time
@@ -126,7 +126,7 @@ stamper.penup()
 
 # food
 food = turtle.Turtle()
-food.shape("circle")
+food.shape("triangle")
 food.color("blue")
 food.shapesize(food_size / 20)
 food.penup()
